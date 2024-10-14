@@ -1,0 +1,1 @@
+This temporary repo contains a modified subset of the OOAPI v5 schema. Purpose of this repository is to facilitate discusion in the Student Mobility Project on how to send minor results over the wire.

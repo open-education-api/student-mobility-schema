@@ -1,0 +1,9 @@
+openapi: "3.0.3"
+info:
+  version: "5.0.0"
+  title: Open Education API - Student Mobility Schema
+  description: |
+  
+paths:
+  /associations/{associationId}:
+    $ref: ./paths/AssociationPatch.yaml

@@ -1,0 +1,46 @@
+patch:
+  summary: PATCH /associations/{associationId}
+  description: |
+    Update the status or result of an enrollment. Other elements of the association object COULD 
+    also be PATCHED. But are not likely and have therefor not been included in this endpoint.
+    Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
+    a specialized media type `application/merge-patch+json` for partial resource representation 
+    to update parts of resource objects.
+
+  parameters:
+    - name: associationId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            remoteState:
+              $ref: '../enumerations/remoteAssociationState.yaml'
+            result:
+              oneOf:
+                - $ref: '../schemas/ProgramResult.yaml'  
+                - $ref: '../schemas/CourseResult.yaml'
+
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/AssociationId.yaml'
+              - $ref: '../schemas/PostResponse.yaml'
+              - properties:
+                  state:
+                    $ref: '../enumerations/associationState.yaml' 
+
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
