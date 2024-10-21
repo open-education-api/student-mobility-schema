@@ -12,8 +12,16 @@ allOf:
             items:
               type: object
               properties:
+                offeringId:
+                  type: string
+                  description: Unique id of this offering
+                  format: uuid
+                  example: 123e4567-e89b-12d3-a456-134564174000
+                  readOnly: true
                 name:
                   $ref: './LanguageTypedString.yaml'
+                resultValueType:
+                  $ref: '../enumerations/resultValueType.yaml'
                 primaryCode:
                   $ref: './IdentifierEntry.yaml'
                   description: The primary human readable identifier for the program. This is often the source identifier as defined by the institution.
