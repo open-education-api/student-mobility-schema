@@ -28,6 +28,11 @@ allOf:
                   example:
                     codeType: courseCode
                     code: BIO2014
+                abbreviation:
+                  type: string
+                  description: The abbreviation or internal code used to identify this course (ECTS-code)
+                  maxLength: 256
+                  example: INFOMQNM
                 result:
                   $ref: './CourseResult.yaml'
         required:
