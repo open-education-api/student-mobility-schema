@@ -1,8 +1,11 @@
 allOf:
   - $ref: './Result.yaml'
   - type: object
+    # pass and score were made mandatory for student-mobility
     required:
       - studyLoad
+      - pass
+      - score
     properties:
       studyLoad:
         $ref: './StudyLoadDescriptor.yaml'
