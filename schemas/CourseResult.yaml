@@ -6,6 +6,16 @@ allOf:
       - studyLoad
       - pass
       - score
+      - attempt
+      - participated
     properties:
       studyLoad:
         $ref: './StudyLoadDescriptor.yaml'
+      # Attempt was added for student-mobility
+      attempt:
+        type: integer
+        minimum: 1
+        description: A student can have more than one attempt to achieve a course result (herkansingen). `attempt` captures that information in a monotonically increasing integer.
+      participated:
+        type: boolean
+        description: Whether the student participated in the course.
